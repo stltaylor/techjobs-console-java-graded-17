@@ -15,10 +15,10 @@ import java.util.List;
  */
 public class JobData {
 
-    private static final String DATA_FILE = "src/main/resources/job_data.csv";
+    public static final String DATA_FILE = "src/main/resources/job_data.csv";
     private static boolean isDataLoaded = false;
 
-    private static ArrayList<HashMap<String, String>> allJobs;
+    public static ArrayList<HashMap<String, String>> allJobs;
 
     /**
      * Fetch list of all values from loaded data,
