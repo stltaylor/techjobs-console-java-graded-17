@@ -122,20 +122,25 @@ public class TechJobs {
 
         if (someJobs == JobData.allJobs) {
             for (HashMap<String, String> row : someJobs) {
-                System.out.println("*****");
+                System.out.println("\n*****");
                 for (Map.Entry entry : row.entrySet()) {
                     System.out.println(entry.getKey() + ": " + entry.getValue());
                 }
-                System.out.println("*****\n");
+                System.out.println("*****");
 //            System.out.println("position type:" + row.get(0));
 //        System.out.println(JobData.allJobs);
 
             }
         } else if (someJobs.isEmpty()){
-            System.out.println("No Results");
+            System.out.print("No Results");
         } else {
-            System.out.println(someJobs);
+            for (HashMap<String, String> row : someJobs) {
+                System.out.println("\n*****");
+                for (Map.Entry entry : row.entrySet()) {
+                    System.out.println(entry.getKey() + ": " + entry.getValue());
+                }
+                System.out.println("*****");
+            }
         }
-
     }
 }
