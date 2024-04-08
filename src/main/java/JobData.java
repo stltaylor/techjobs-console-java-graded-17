@@ -5,10 +5,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -17,6 +14,17 @@ public class JobData {
 
     public static final String DATA_FILE = "src/main/resources/job_data.csv";
     private static boolean isDataLoaded = false;
+
+    public static ArrayList<String> caseValues(HashMap<Integer, String> hashMap) {
+        if (hashMap == null) {
+            return null;
+        }
+        return new ArrayList<String>(hashMap.values());
+    }
+
+
+
+
 
     public static ArrayList<HashMap<String, String>> allJobs;
 
@@ -72,12 +80,16 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-
-            String aValue = row.get(column);
-
-            if (aValue.contains(value)) {
-                jobs.add(row);
+            // making this HashMap into an entrySet
+            for (Map.Entry<String, String> entry : row.entrySet()){
+                // searching thru values ignoring case
+                if (entry.getValue().equalsIgnoreCase(value)) {
+                    // add matches to arrayList
+                    jobs.add(row);
+                }
             }
+
+
 
         }
 
@@ -94,9 +106,24 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
-        // TODO - implement this method
-        return null;
+
+
+        for (HashMap<String, String> row : allJobs) {
+            // making this HashMap into an entrySet
+            for (Map.Entry<String, String> entry : row.entrySet()){
+                // searching thru values ignoring case
+                if (entry.getValue().equalsIgnoreCase(value)) {
+                    // add matches to arrayList
+                    jobs.add(row);
+                }
+        }
+        }
+
+
+
+        return jobs;
     }
 
     /**
