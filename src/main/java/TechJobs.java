@@ -122,7 +122,7 @@ public class TechJobs {
 
         if (someJobs == JobData.allJobs) {
             for (HashMap<String, String> row : someJobs) {
-                System.out.println("*****");
+                System.out.println("\n*****");
                 for (Map.Entry entry : row.entrySet()) {
                     System.out.println(entry.getKey() + ": " + entry.getValue());
                 }
@@ -135,7 +135,7 @@ public class TechJobs {
             System.out.print("No Results");
         } else {
             for (HashMap<String, String> row : someJobs) {
-                System.out.println("*****");
+                System.out.println("\n*****");
                 for (Map.Entry entry : row.entrySet()) {
                     System.out.println(entry.getKey() + ": " + entry.getValue());
                 }
