@@ -103,25 +103,26 @@ public class JobData {
      * @return      List of all jobs with at least one field containing the value
      */
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
-
-        // load data, if not already loaded
+        // Load data, if not already loaded
         loadData();
+
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
-
-
         for (HashMap<String, String> row : allJobs) {
-            // making this HashMap into an entrySet
-            for (Map.Entry<String, String> entry : row.entrySet()){
-                // searching thru values ignoring case
-                if (entry.getValue().equalsIgnoreCase(value)) {
-                    // add matches to arrayList
-                    jobs.add(row);
+            boolean found = false;
+
+            for (Map.Entry<String, String> entry : row.entrySet()) {
+
+                if (entry.getValue().toLowerCase().contains(value.toLowerCase())) {
+                    found = true;
+                    break;
                 }
+            }
+            // add job to list
+            if (found) {
+                jobs.add(row);
+            }
         }
-        }
-
-
 
         return jobs;
     }
