@@ -77,7 +77,7 @@ public class TechJobs {
         Boolean validChoice = false;
         String[] choiceKeys = new String[choices.size()];
 
-        // Put the choices in an ordered structure so we can
+        // Put the choices in an ordered structure, so we can
         // associate an integer with each one
         int i = 0;
         for (String choiceKey : choices.keySet()) {
@@ -120,18 +120,7 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        if (someJobs == JobData.allJobs) {
-            for (HashMap<String, String> row : someJobs) {
-                System.out.println("\n*****");
-                for (Map.Entry entry : row.entrySet()) {
-                    System.out.println(entry.getKey() + ": " + entry.getValue());
-                }
-                System.out.println("*****");
-//            System.out.println("position type:" + row.get(0));
-//        System.out.println(JobData.allJobs);
-
-            }
-        } else if (someJobs.isEmpty()){
+         if (someJobs.isEmpty()){
             System.out.print("No Results");
         } else {
             for (HashMap<String, String> row : someJobs) {

@@ -83,7 +83,7 @@ public class JobData {
             // making this HashMap into an entrySet
             for (Map.Entry<String, String> entry : row.entrySet()){
                 // searching thru values ignoring case
-                if (entry.getValue().equalsIgnoreCase(value)) {
+                if (entry.getValue().toLowerCase().contains(value.toLowerCase())) {
                     // add matches to arrayList
                     jobs.add(row);
                 }
@@ -109,7 +109,7 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
 
-
+        // Case Insensitive
         for (HashMap<String, String> row : allJobs) {
             // making this HashMap into an entrySet
             for (Map.Entry<String, String> entry : row.entrySet()){
