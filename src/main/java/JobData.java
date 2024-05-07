@@ -81,15 +81,18 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
             // making this HashMap into an entrySet
-            for (Map.Entry<String, String> entry : row.entrySet()){
+            for (Map.Entry<String, String> entry : row.entrySet()) {
                 // searching thru values ignoring case
                 if (entry.getValue().toLowerCase().contains(value.toLowerCase())) {
                     // add matches to arrayList
-                    jobs.add(row);
+                    if (jobs.contains(row)) {
+                        break;
+                    } else {
+                        jobs.add(row);
+
+                    }
                 }
             }
-
-
 
         }
 
@@ -111,16 +114,22 @@ public class JobData {
 
         // Case Insensitive
         for (HashMap<String, String> row : allJobs) {
+
+
             // making this HashMap into an entrySet
-            for (Map.Entry<String, String> entry : row.entrySet()){
+            for (Map.Entry<String, String> entry : row.entrySet()) {
                 // searching thru values ignoring case
                 if (entry.getValue().toLowerCase().contains(value.toLowerCase())) {
-                    // add matches to arrayList
-                    jobs.add(row);
-                }
-        }
-        }
+                    // add matches to arrayList only if they aren't already there
+                    if (jobs.contains(row)) {
+                        break;
+                    } else {
+                        jobs.add(row);
 
+                    }
+                }
+            }
+        }
 
 
         return jobs;
